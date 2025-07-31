@@ -8,3 +8,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(PROJECT_ROOT, 'data', 'sqlite3.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
+    
+    # 数据库序列起始值配置
+    USER_ID_START = 221001
+    ORG_ID_START = 5001

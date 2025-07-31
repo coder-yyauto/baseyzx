@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
 from config import Config
 import os
 
@@ -7,9 +8,15 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# 初始化数据库
+db = SQLAlchemy()
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    
+    # 初始化数据库
+    db.init_app(app)
     
     # 启用CORS
     CORS(app)
